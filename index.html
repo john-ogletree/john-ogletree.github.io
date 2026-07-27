@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>John Ogletree · watch</title>
+    <title>John Ogletree · Universal</title>
     <style>
         /* ---------- RESET & BASE ---------- */
         * {
@@ -15,7 +15,6 @@
         html, body {
             height: 100%;
             width: 100%;
-            overflow: hidden; /* Prevent scroll on watch */
         }
 
         body {
@@ -25,75 +24,89 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 4px;
+            padding: clamp(2px, 2vh, 3vw);
             margin: 0;
-            font-size: 8px; /* Base size for watch */
+            overflow-x: hidden;
         }
 
-        /* ---------- UTILITY CLASSES (micro) ---------- */
-        .container { 
+        /* ---------- CONTAINER ---------- */
+        .container {
             width: 100%;
             max-width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: clamp(2px, 1.5vh, 2.5vw);
         }
-        
+
+        /* ---------- UTILITY CLASSES ---------- */
         .flex { display: flex; }
         .flex-col { flex-direction: column; }
         .flex-row { flex-direction: row; }
+        .flex-1 { flex: 1; }
         .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .justify-between { justify-content: space-between; }
         .justify-center { justify-content: center; }
-        .gap-1 { gap: 2px; }
-        .gap-2 { gap: 3px; }
-        .gap-3 { gap: 4px; }
+        .gap-1 { gap: clamp(1px, 0.3vh, 0.5vw); }
+        .gap-2 { gap: clamp(2px, 0.6vh, 1vw); }
+        .gap-3 { gap: clamp(3px, 1vh, 1.5vw); }
+        .gap-4 { gap: clamp(4px, 1.5vh, 2vw); }
+        .gap-5 { gap: clamp(5px, 2vh, 2.5vw); }
         .text-center { text-align: center; }
+        .text-left { text-align: left; }
         .w-full { width: 100%; }
         .flex-shrink-0 { flex-shrink: 0; }
         .flex-1 { flex: 1; }
+        .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-        /* Typography - tiny */
+        /* ---------- TYPOGRAPHY - scales everywhere ---------- */
         .text-white { color: #ffffff; }
         .text-muted { color: #8b949e; }
         .text-orange { color: #d29922; }
-        .text-xs { font-size: 6px; }
-        .text-sm { font-size: 7px; }
-        .text-base { font-size: 8px; }
-        .text-lg { font-size: 10px; }
-        .text-xl { font-size: 12px; }
         .font-bold { font-weight: 700; }
         .font-mono { font-family: 'Courier New', Courier, monospace; }
-        .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .leading-tight { line-height: 1.2; }
+        .leading-normal { line-height: 1.5; }
 
-        /* Spacing - micro */
-        .p-1 { padding: 2px 4px; }
-        .p-2 { padding: 3px 5px; }
-        .mt-1 { margin-top: 2px; }
-        .mb-1 { margin-bottom: 2px; }
+        /* Font sizes that scale from watch to 4K */
+        .text-xs { font-size: clamp(4px, 0.6vh, 0.9vw); }
+        .text-sm { font-size: clamp(5px, 0.8vh, 1.1vw); }
+        .text-base { font-size: clamp(6px, 1vh, 1.3vw); }
+        .text-lg { font-size: clamp(8px, 1.8vh, 2.5vw); }
+        .text-xl { font-size: clamp(10px, 2.5vh, 3.5vw); }
+        .text-2xl { font-size: clamp(12px, 3.5vh, 5vw); }
+        .text-3xl { font-size: clamp(16px, 5vh, 7vw); }
 
-        /* Borders */
-        .border { border: 0.5px solid #30363d; }
-        .border-orange { border-color: rgba(210, 153, 34, 0.4); }
-        .rounded-full { border-radius: 9999px; }
-        .rounded-md { border-radius: 4px; }
+        /* ---------- SPACING & SIZING - scales everywhere ---------- */
+        .p-1 { padding: clamp(1px, 0.2vh, 0.3vw); }
+        .p-2 { padding: clamp(2px, 0.4vh, 0.6vw); }
+        .p-3 { padding: clamp(3px, 0.6vh, 1vw); }
+        .p-4 { padding: clamp(4px, 1vh, 1.5vw); }
+        .mt-1 { margin-top: clamp(1px, 0.3vh, 0.5vw); }
+        .mt-2 { margin-top: clamp(2px, 0.6vh, 1vw); }
+        .mt-3 { margin-top: clamp(3px, 1vh, 1.5vw); }
+        .mt-4 { margin-top: clamp(4px, 1.5vh, 2vw); }
+        .mb-1 { margin-bottom: clamp(1px, 0.3vh, 0.5vw); }
+        .mb-2 { margin-bottom: clamp(2px, 0.6vh, 1vw); }
+        .mb-3 { margin-bottom: clamp(3px, 1vh, 1.5vw); }
+        .mb-4 { margin-bottom: clamp(4px, 1.5vh, 2vw); }
 
-        /* Avatar - tiny */
+        /* Avatar - scales from 12px to 180px */
         .avatar {
-            width: 24px;
-            height: 24px;
+            width: clamp(12px, 8vh, 180px);
+            height: clamp(12px, 8vh, 180px);
             border-radius: 50%;
             object-fit: cover;
-            border: 1px solid rgba(210, 153, 34, 0.4);
+            border: clamp(0.5px, 0.15vh, 3px) solid rgba(210, 153, 34, 0.4);
             background: #1f2429;
             flex-shrink: 0;
         }
 
-        /* Status dot - tiny */
+        /* Status dot */
         .dot {
-            width: 4px;
-            height: 4px;
+            width: clamp(3px, 0.6vh, 10px);
+            height: clamp(3px, 0.6vh, 10px);
             border-radius: 50%;
             background: #d29922;
             display: inline-block;
@@ -107,29 +120,111 @@
             100% { opacity: 1; }
         }
 
-        /* Links - ultra compact grid */
+        /* ---------- BADGE ---------- */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: clamp(2px, 0.3vh, 0.6vw);
+            background: rgba(210, 153, 34, 0.12);
+            color: #d29922;
+            border: clamp(0.3px, 0.08vh, 1.5px) solid rgba(210, 153, 34, 0.2);
+            padding: clamp(1px, 0.2vh, 0.5vw) clamp(3px, 0.6vh, 1.2vw);
+            border-radius: 9999px;
+            font-size: clamp(4px, 0.6vh, 0.9vw);
+            font-family: 'Courier New', Courier, monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        /* ---------- LINK GRID - responsive columns ---------- */
         .link-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
+            gap: clamp(2px, 0.5vh, 1vw);
             flex: 1;
             align-content: start;
         }
 
+        /* Default: 6 columns for 4K and large screens */
+        .link-grid {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        /* 4K TVs (3840px+) */
+        @media (min-width: 3840px) {
+            .link-grid { grid-template-columns: repeat(8, 1fr); gap: 1.2vw; }
+        }
+
+        /* Large desktop (1920px - 3839px) */
+        @media (min-width: 1920px) and (max-width: 3839px) {
+            .link-grid { grid-template-columns: repeat(6, 1fr); }
+        }
+
+        /* Desktop (1024px - 1919px) */
+        @media (min-width: 1024px) and (max-width: 1919px) {
+            .link-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .link-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Large phone (481px - 767px) */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .link-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Small phone (320px - 480px) */
+        @media (max-width: 480px) {
+            .link-grid { grid-template-columns: repeat(2, 1fr); }
+            .profile-row { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+            .profile-text { align-items: center !important; text-align: center !important; }
+        }
+
+        /* Watch (under 200px) */
+        @media (max-width: 200px) {
+            .link-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+            .profile-row { flex-direction: row !important; align-items: center !important; text-align: left !important; }
+            .profile-text { align-items: flex-start !important; text-align: left !important; }
+            .badge { font-size: 4px; padding: 1px 3px; }
+            .footer { flex-direction: column; align-items: center; text-align: center; gap: 1px; }
+        }
+
+        /* Very small watch (under 150px) */
+        @media (max-width: 150px) {
+            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5px; }
+            .badge { display: none; }
+            .footer { font-size: 3.5px; }
+        }
+
+        /* Tiny watch (under 130px) */
+        @media (max-width: 130px) {
+            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+            .footer { display: none; }
+            .profile-row { gap: 2px; }
+        }
+
+        /* ---------- LINK ITEMS ---------- */
         .link-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.04);
-            border: 0.5px solid #30363d;
-            border-radius: 4px;
-            padding: 2px 1px;
+            border: clamp(0.3px, 0.08vh, 1.5px) solid #30363d;
+            border-radius: clamp(2px, 0.6vh, 16px);
+            padding: clamp(1px, 0.4vh, 1.2vw) clamp(1px, 0.4vh, 1.2vw);
             text-decoration: none;
             color: #c9d1d9;
-            transition: background 0.1s;
-            min-height: 28px;
-            gap: 1px;
+            transition: background 0.2s, transform 0.1s;
+            min-height: clamp(14px, 4vh, 80px);
+            gap: clamp(1px, 0.2vh, 0.5vw);
+        }
+
+        .link-item:hover {
+            background: rgba(210, 153, 34, 0.08);
+            border-color: #d29922;
         }
 
         .link-item:active {
@@ -138,12 +233,13 @@
         }
 
         .link-icon {
-            font-size: 10px;
+            font-size: clamp(6px, 1.5vh, 3vw);
             line-height: 1;
+            flex-shrink: 0;
         }
 
         .link-label {
-            font-size: 5px;
+            font-size: clamp(3.5px, 0.5vh, 1vw);
             opacity: 0.8;
             text-align: center;
             line-height: 1.1;
@@ -153,32 +249,17 @@
             white-space: nowrap;
         }
 
-        /* Status badge - mini */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            background: rgba(210, 153, 34, 0.12);
-            color: #d29922;
-            border: 0.5px solid rgba(210, 153, 34, 0.2);
-            padding: 1px 6px;
-            border-radius: 9999px;
-            font-size: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        /* Footer - minimal */
+        /* ---------- FOOTER ---------- */
         .footer {
-            border-top: 0.5px solid #30363d;
-            padding-top: 2px;
-            font-size: 5px;
+            border-top: clamp(0.3px, 0.08vh, 1.5px) solid #30363d;
+            padding-top: clamp(1px, 0.4vh, 1vw);
+            font-size: clamp(3.5px, 0.5vh, 0.8vw);
             color: #8b949e;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: space-between;
             opacity: 0.6;
+            flex-shrink: 0;
         }
 
         .footer a {
@@ -186,59 +267,23 @@
             text-decoration: none;
         }
 
-        /* ---------- WATCH-SPECIFIC BREAKPOINTS ---------- */
-        /* Apple Watch (approx 184px - 200px) */
-        @media (max-width: 200px) {
-            body { font-size: 7px; padding: 3px; }
-            .avatar { width: 20px; height: 20px; }
-            .link-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
-            .link-icon { font-size: 9px; }
-            .link-label { font-size: 4.5px; }
-            .text-lg { font-size: 9px; }
-            .text-base { font-size: 7px; }
-            .text-sm { font-size: 6px; }
-            .badge { font-size: 4.5px; padding: 1px 4px; }
-            .footer { font-size: 4.5px; }
-            .link-item { min-height: 24px; padding: 1px 1px; }
+        .footer a:hover {
+            color: #d29922;
         }
 
-        /* Very small watches (under 150px) */
-        @media (max-width: 150px) {
-            body { font-size: 6px; padding: 2px; }
-            .avatar { width: 16px; height: 16px; }
-            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
-            .link-icon { font-size: 8px; }
-            .link-label { font-size: 4px; }
-            .text-lg { font-size: 8px; }
-            .text-base { font-size: 6px; }
-            .text-sm { font-size: 5px; }
-            .badge { font-size: 4px; padding: 1px 3px; }
-            .footer { font-size: 4px; flex-direction: column; align-items: center; text-align: center; }
-            .link-item { min-height: 20px; padding: 1px; }
-            .gap-1 { gap: 1px; }
-            .gap-2 { gap: 2px; }
-            .p-1 { padding: 1px 2px; }
-        }
-
-        /* Tiny square watches (like some Wear OS) */
-        @media (max-width: 130px) {
-            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
-            .link-item { min-height: 16px; border-radius: 2px; }
-            .link-icon { font-size: 6px; }
-            .link-label { font-size: 3.5px; }
-            .avatar { width: 12px; height: 12px; }
-            .badge { display: none; } /* Hide badge on super tiny screens */
-            .footer { display: none; } /* Hide footer on super tiny screens */
-            .text-lg { font-size: 7px; }
-            .container { gap: 1px; }
-        }
-
-        /* Round watch face support - safe area padding */
+        /* ---------- ROUND WATCH SUPPORT ---------- */
         @supports (padding: max(0px)) {
             body {
-                padding: max(4px, env(safe-area-inset-top)) max(4px, env(safe-area-inset-right)) 
-                         max(4px, env(safe-area-inset-bottom)) max(4px, env(safe-area-inset-left));
+                padding: max(clamp(2px, 1vh, 2vw), env(safe-area-inset-top)) 
+                         max(clamp(2px, 1vh, 2vw), env(safe-area-inset-right)) 
+                         max(clamp(2px, 1vh, 2vw), env(safe-area-inset-bottom)) 
+                         max(clamp(2px, 1vh, 2vw), env(safe-area-inset-left));
             }
+        }
+
+        /* ---------- PREVENT SCROLL ON WATCH ---------- */
+        @media (max-width: 200px) {
+            html, body { overflow: hidden; }
         }
     </style>
 </head>
@@ -246,27 +291,32 @@
 
 <div class="container">
 
-    <!-- ===== PROFILE - micro layout ===== -->
-    <div class="flex flex-row items-center gap-1" style="gap: 4px;">
+    <!-- ===== PROFILE SECTION ===== -->
+    <div class="flex flex-row items-center gap-4 profile-row">
+        <!-- Avatar -->
         <img class="avatar" 
-             src="https://ui-avatars.com/api/?name=John+Ogletree&background=d29922&color=0d1117&size=32&font-size=0.3" 
-             alt="JO" />
+             src="https://ui-avatars.com/api/?name=John+Ogletree&background=d29922&color=0d1117&size=128&font-size=0.4" 
+             alt="John Ogletree" />
 
-        <div class="flex flex-col" style="gap: 1px; flex: 1; min-width: 0;">
-            <div class="flex flex-row items-center gap-1">
-                <span class="text-white text-lg font-bold leading-tight truncate">John O.</span>
+        <!-- Text content -->
+        <div class="flex flex-col profile-text" style="gap: clamp(1px, 0.3vh, 0.5vw); flex: 1; min-width: 0;">
+            <div class="flex flex-row items-center gap-2">
+                <span class="text-white text-2xl font-bold leading-tight truncate">John Ogletree</span>
                 <span class="dot"></span>
             </div>
-            <span class="badge">hub · active</span>
+            <p class="text-muted text-sm leading-normal truncate" style="max-width: 100%;">
+                Digital infra · routing web
+            </p>
+            <span class="badge">subdomain hub · active</span>
         </div>
     </div>
 
-    <!-- ===== LINKS GRID - ultra compact ===== -->
+    <!-- ===== LINKS GRID ===== -->
     <div class="link-grid">
 
         <a href="https://github.com/jogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">🐙</span>
-            <span class="link-label">Git</span>
+            <span class="link-label">GitHub</span>
         </a>
 
         <a href="https://x.com/jogletree" target="_blank" rel="noopener noreferrer" class="link-item">
@@ -276,27 +326,27 @@
 
         <a href="https://linkedin.com/in/johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">🔗</span>
-            <span class="link-label">IN</span>
+            <span class="link-label">LinkedIn</span>
         </a>
 
         <a href="https://john-ogletree.substack.com" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">📬</span>
-            <span class="link-label">Sub</span>
+            <span class="link-label">Substack</span>
         </a>
 
         <a href="https://youtube.com/@johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">▶️</span>
-            <span class="link-label">YT</span>
+            <span class="link-label">YouTube</span>
         </a>
 
         <a href="mailto:john@john-ogletree.me" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">✉️</span>
-            <span class="link-label">Mail</span>
+            <span class="link-label">Email</span>
         </a>
 
         <a href="https://johnogletree.dev" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">💼</span>
-            <span class="link-label">Port</span>
+            <span class="link-label">Portfolio</span>
         </a>
 
         <a href="https://blog.johnogletree.me" target="_blank" rel="noopener noreferrer" class="link-item">
@@ -306,30 +356,32 @@
 
         <a href="https://discord.gg/johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">💬</span>
-            <span class="link-label">Disc</span>
+            <span class="link-label">Discord</span>
         </a>
 
         <a href="https://tiktok.com/@johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">🎵</span>
-            <span class="link-label">TT</span>
+            <span class="link-label">TikTok</span>
         </a>
 
         <a href="https://instagram.com/johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">📸</span>
-            <span class="link-label">IG</span>
+            <span class="link-label">Instagram</span>
         </a>
 
         <a href="https://threads.net/@johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-icon">🧵</span>
-            <span class="link-label">Thr</span>
+            <span class="link-label">Threads</span>
         </a>
 
     </div>
 
-    <!-- ===== FOOTER - minimal ===== -->
+    <!-- ===== FOOTER ===== -->
     <div class="footer">
-        <span>⌘ mono↓</span>
-        <span><a href="https://john-ogletree.me">jo.me</a> v2</span>
+        <span>⌘ monolith deprecated · isolated routing</span>
+        <span>
+            <a href="https://john-ogletree.me" target="_blank">john-ogletree.me</a> · v2
+        </span>
     </div>
 
 </div>
