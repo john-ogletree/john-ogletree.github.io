@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>John Ogletree · Universal</title>
     <style>
         /* ---------- RESET & BASE ---------- */
@@ -24,19 +24,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: clamp(2px, 2vh, 3vw);
+            padding: clamp(8px, 2vh, 3vw);
             margin: 0;
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
         /* ---------- CONTAINER ---------- */
         .container {
             width: 100%;
-            max-width: 100%;
+            max-width: 1400px;
             height: 100%;
             display: flex;
             flex-direction: column;
-            gap: clamp(2px, 1.5vh, 2.5vw);
+            gap: clamp(8px, 1.5vh, 2.5vw);
         }
 
         /* ---------- UTILITY CLASSES ---------- */
@@ -48,19 +49,20 @@
         .items-start { align-items: flex-start; }
         .justify-between { justify-content: space-between; }
         .justify-center { justify-content: center; }
-        .gap-1 { gap: clamp(1px, 0.3vh, 0.5vw); }
-        .gap-2 { gap: clamp(2px, 0.6vh, 1vw); }
-        .gap-3 { gap: clamp(3px, 1vh, 1.5vw); }
-        .gap-4 { gap: clamp(4px, 1.5vh, 2vw); }
-        .gap-5 { gap: clamp(5px, 2vh, 2.5vw); }
+        .gap-1 { gap: clamp(4px, 0.3vh, 0.8vw); }
+        .gap-2 { gap: clamp(6px, 0.6vh, 1.2vw); }
+        .gap-3 { gap: clamp(8px, 1vh, 1.8vw); }
+        .gap-4 { gap: clamp(10px, 1.5vh, 2.5vw); }
+        .gap-5 { gap: clamp(12px, 2vh, 3vw); }
         .text-center { text-align: center; }
         .text-left { text-align: left; }
         .w-full { width: 100%; }
         .flex-shrink-0 { flex-shrink: 0; }
         .flex-1 { flex: 1; }
         .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
-        /* ---------- TYPOGRAPHY - scales everywhere ---------- */
+        /* ---------- TYPOGRAPHY - Accessible minimum sizes ---------- */
         .text-white { color: #ffffff; }
         .text-muted { color: #8b949e; }
         .text-orange { color: #d29922; }
@@ -68,45 +70,46 @@
         .font-mono { font-family: 'Courier New', Courier, monospace; }
         .leading-tight { line-height: 1.2; }
         .leading-normal { line-height: 1.5; }
+        .leading-relaxed { line-height: 1.6; }
 
-        /* Font sizes that scale from watch to 4K */
-        .text-xs { font-size: clamp(4px, 0.6vh, 0.9vw); }
-        .text-sm { font-size: clamp(5px, 0.8vh, 1.1vw); }
-        .text-base { font-size: clamp(6px, 1vh, 1.3vw); }
-        .text-lg { font-size: clamp(8px, 1.8vh, 2.5vw); }
-        .text-xl { font-size: clamp(10px, 2.5vh, 3.5vw); }
-        .text-2xl { font-size: clamp(12px, 3.5vh, 5vw); }
-        .text-3xl { font-size: clamp(16px, 5vh, 7vw); }
+        /* Font sizes with accessibility minimums */
+        .text-xs { font-size: clamp(10px, 0.8vh, 14px); }
+        .text-sm { font-size: clamp(12px, 1vh, 16px); }
+        .text-base { font-size: clamp(14px, 1.2vh, 18px); }
+        .text-lg { font-size: clamp(16px, 1.8vh, 24px); }
+        .text-xl { font-size: clamp(20px, 2.5vh, 32px); }
+        .text-2xl { font-size: clamp(24px, 3.5vh, 48px); }
+        .text-3xl { font-size: clamp(28px, 5vh, 64px); }
 
-        /* ---------- SPACING & SIZING - scales everywhere ---------- */
-        .p-1 { padding: clamp(1px, 0.2vh, 0.3vw); }
-        .p-2 { padding: clamp(2px, 0.4vh, 0.6vw); }
-        .p-3 { padding: clamp(3px, 0.6vh, 1vw); }
-        .p-4 { padding: clamp(4px, 1vh, 1.5vw); }
-        .mt-1 { margin-top: clamp(1px, 0.3vh, 0.5vw); }
-        .mt-2 { margin-top: clamp(2px, 0.6vh, 1vw); }
-        .mt-3 { margin-top: clamp(3px, 1vh, 1.5vw); }
-        .mt-4 { margin-top: clamp(4px, 1.5vh, 2vw); }
-        .mb-1 { margin-bottom: clamp(1px, 0.3vh, 0.5vw); }
-        .mb-2 { margin-bottom: clamp(2px, 0.6vh, 1vw); }
-        .mb-3 { margin-bottom: clamp(3px, 1vh, 1.5vw); }
-        .mb-4 { margin-bottom: clamp(4px, 1.5vh, 2vw); }
+        /* ---------- SPACING & SIZING ---------- */
+        .p-1 { padding: clamp(4px, 0.3vh, 8px); }
+        .p-2 { padding: clamp(6px, 0.5vh, 12px); }
+        .p-3 { padding: clamp(8px, 0.8vh, 16px); }
+        .p-4 { padding: clamp(12px, 1.2vh, 24px); }
+        .mt-1 { margin-top: clamp(4px, 0.3vh, 8px); }
+        .mt-2 { margin-top: clamp(6px, 0.6vh, 12px); }
+        .mt-3 { margin-top: clamp(8px, 1vh, 16px); }
+        .mt-4 { margin-top: clamp(12px, 1.5vh, 24px); }
+        .mb-1 { margin-bottom: clamp(4px, 0.3vh, 8px); }
+        .mb-2 { margin-bottom: clamp(6px, 0.6vh, 12px); }
+        .mb-3 { margin-bottom: clamp(8px, 1vh, 16px); }
+        .mb-4 { margin-bottom: clamp(12px, 1.5vh, 24px); }
 
-        /* Avatar - scales from 12px to 180px */
+        /* Avatar - accessible minimum size */
         .avatar {
-            width: clamp(12px, 8vh, 180px);
-            height: clamp(12px, 8vh, 180px);
+            width: clamp(44px, 8vh, 180px);
+            height: clamp(44px, 8vh, 180px);
             border-radius: 50%;
             object-fit: cover;
-            border: clamp(0.5px, 0.15vh, 3px) solid rgba(210, 153, 34, 0.4);
+            border: clamp(2px, 0.15vh, 4px) solid rgba(210, 153, 34, 0.4);
             background: #1f2429;
             flex-shrink: 0;
         }
 
-        /* Status dot */
+        /* Status dot - accessible minimum */
         .dot {
-            width: clamp(3px, 0.6vh, 10px);
-            height: clamp(3px, 0.6vh, 10px);
+            width: clamp(8px, 0.6vh, 14px);
+            height: clamp(8px, 0.6vh, 14px);
             border-radius: 50%;
             background: #d29922;
             display: inline-block;
@@ -116,31 +119,31 @@
 
         @keyframes pulse {
             0% { opacity: 1; }
-            50% { opacity: 0.2; }
+            50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
 
-        /* ---------- BADGE ---------- */
+        /* ---------- BADGE - Accessible ---------- */
         .badge {
             display: inline-flex;
             align-items: center;
-            gap: clamp(2px, 0.3vh, 0.6vw);
+            gap: clamp(4px, 0.3vh, 8px);
             background: rgba(210, 153, 34, 0.12);
             color: #d29922;
-            border: clamp(0.3px, 0.08vh, 1.5px) solid rgba(210, 153, 34, 0.2);
-            padding: clamp(1px, 0.2vh, 0.5vw) clamp(3px, 0.6vh, 1.2vw);
+            border: clamp(1px, 0.08vh, 2px) solid rgba(210, 153, 34, 0.3);
+            padding: clamp(2px, 0.2vh, 6px) clamp(8px, 0.6vh, 16px);
             border-radius: 9999px;
-            font-size: clamp(4px, 0.6vh, 0.9vw);
+            font-size: clamp(10px, 0.6vh, 14px);
             font-family: 'Courier New', Courier, monospace;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
-        /* ---------- LINK GRID - responsive columns ---------- */
+        /* ---------- LINK GRID - Responsive ---------- */
         .link-grid {
             display: grid;
-            gap: clamp(2px, 0.5vh, 1vw);
+            gap: clamp(6px, 0.6vh, 16px);
             flex: 1;
             align-content: start;
         }
@@ -184,106 +187,172 @@
 
         /* Watch (under 200px) */
         @media (max-width: 200px) {
-            .link-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
             .profile-row { flex-direction: row !important; align-items: center !important; text-align: left !important; }
             .profile-text { align-items: flex-start !important; text-align: left !important; }
-            .badge { font-size: 4px; padding: 1px 3px; }
-            .footer { flex-direction: column; align-items: center; text-align: center; gap: 1px; }
+            .badge { font-size: 8px; padding: 2px 6px; }
+            .footer { flex-direction: column; align-items: center; text-align: center; gap: 2px; }
+            .avatar { width: 32px; height: 32px; }
         }
 
         /* Very small watch (under 150px) */
         @media (max-width: 150px) {
-            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5px; }
+            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
             .badge { display: none; }
-            .footer { font-size: 3.5px; }
+            .footer { font-size: 8px; }
+            .avatar { width: 28px; height: 28px; }
         }
 
-        /* Tiny watch (under 130px) */
-        @media (max-width: 130px) {
-            .link-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
-            .footer { display: none; }
-            .profile-row { gap: 2px; }
-        }
-
-        /* ---------- LINK ITEMS ---------- */
+        /* ---------- LINK ITEMS - Accessible touch targets ---------- */
         .link-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.04);
-            border: clamp(0.3px, 0.08vh, 1.5px) solid #30363d;
-            border-radius: clamp(2px, 0.6vh, 16px);
-            padding: clamp(1px, 0.4vh, 1.2vw) clamp(1px, 0.4vh, 1.2vw);
+            border: clamp(1px, 0.08vh, 2px) solid #30363d;
+            border-radius: clamp(8px, 0.6vh, 16px);
+            padding: clamp(8px, 0.6vh, 20px) clamp(4px, 0.4vh, 12px);
             text-decoration: none;
             color: #c9d1d9;
-            transition: background 0.2s, transform 0.1s;
-            min-height: clamp(14px, 4vh, 80px);
-            gap: clamp(1px, 0.2vh, 0.5vw);
+            transition: background 0.2s, transform 0.1s, border-color 0.2s;
+            min-height: clamp(44px, 6vh, 100px);
+            min-width: 44px;
+            gap: clamp(4px, 0.3vh, 8px);
+            cursor: pointer;
         }
 
-        .link-item:hover {
+        .link-item:hover,
+        .link-item:focus-visible {
             background: rgba(210, 153, 34, 0.08);
             border-color: #d29922;
+            outline: 2px solid #d29922;
+            outline-offset: 2px;
         }
 
         .link-item:active {
             background: rgba(210, 153, 34, 0.15);
-            transform: scale(0.95);
+            transform: scale(0.97);
         }
 
         .link-icon {
-            font-size: clamp(6px, 1.5vh, 3vw);
+            font-size: clamp(18px, 2vh, 40px);
             line-height: 1;
             flex-shrink: 0;
         }
 
         .link-label {
-            font-size: clamp(3.5px, 0.5vh, 1vw);
-            opacity: 0.8;
+            font-size: clamp(10px, 0.7vh, 16px);
+            opacity: 0.9;
             text-align: center;
-            line-height: 1.1;
+            line-height: 1.2;
             max-width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-weight: 500;
         }
 
-        /* ---------- FOOTER ---------- */
+        /* ---------- FOOTER - Accessible ---------- */
         .footer {
-            border-top: clamp(0.3px, 0.08vh, 1.5px) solid #30363d;
-            padding-top: clamp(1px, 0.4vh, 1vw);
-            font-size: clamp(3.5px, 0.5vh, 0.8vw);
+            border-top: clamp(1px, 0.08vh, 2px) solid #30363d;
+            padding-top: clamp(8px, 0.6vh, 16px);
+            font-size: clamp(10px, 0.6vh, 14px);
             color: #8b949e;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: space-between;
-            opacity: 0.6;
+            opacity: 0.8;
             flex-shrink: 0;
+            flex-wrap: wrap;
+            gap: clamp(4px, 0.3vh, 8px);
         }
 
         .footer a {
             color: #8b949e;
             text-decoration: none;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: color 0.2s, background 0.2s;
         }
 
-        .footer a:hover {
+        .footer a:hover,
+        .footer a:focus-visible {
             color: #d29922;
+            background: rgba(210, 153, 34, 0.08);
+            outline: 2px solid #d29922;
+            outline-offset: 2px;
         }
 
         /* ---------- ROUND WATCH SUPPORT ---------- */
         @supports (padding: max(0px)) {
             body {
-                padding: max(clamp(2px, 1vh, 2vw), env(safe-area-inset-top)) 
-                         max(clamp(2px, 1vh, 2vw), env(safe-area-inset-right)) 
-                         max(clamp(2px, 1vh, 2vw), env(safe-area-inset-bottom)) 
-                         max(clamp(2px, 1vh, 2vw), env(safe-area-inset-left));
+                padding: max(clamp(8px, 1.5vh, 3vw), env(safe-area-inset-top)) 
+                         max(clamp(8px, 1.5vh, 3vw), env(safe-area-inset-right)) 
+                         max(clamp(8px, 1.5vh, 3vw), env(safe-area-inset-bottom)) 
+                         max(clamp(8px, 1.5vh, 3vw), env(safe-area-inset-left));
             }
         }
 
-        /* ---------- PREVENT SCROLL ON WATCH ---------- */
-        @media (max-width: 200px) {
-            html, body { overflow: hidden; }
+        /* ---------- REDUCED MOTION ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            .dot { animation: none; }
+            .link-item { transition: none; }
+            .link-item:hover { transform: none; }
+        }
+
+        /* ---------- HIGH CONTRAST ---------- */
+        @media (prefers-contrast: high) {
+            .link-item {
+                border-color: #8b949e;
+                background: rgba(255, 255, 255, 0.06);
+            }
+            .link-item:hover {
+                border-color: #d29922;
+                background: rgba(210, 153, 34, 0.15);
+            }
+            .badge {
+                border-color: #d29922;
+                background: rgba(210, 153, 34, 0.2);
+            }
+            .text-muted { color: #b1bac4; }
+        }
+
+        /* ---------- DARK MODE (already default) ---------- */
+        /* Light mode support if needed */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f6f8fa;
+                color: #1f2328;
+            }
+            .text-white { color: #1f2328; }
+            .text-muted { color: #656d76; }
+            .link-item {
+                background: #ffffff;
+                border-color: #d0d7de;
+                color: #1f2328;
+            }
+            .link-item:hover {
+                background: #f6f8fa;
+                border-color: #d29922;
+            }
+            .badge {
+                background: rgba(210, 153, 34, 0.1);
+                color: #9a6a1a;
+                border-color: rgba(210, 153, 34, 0.3);
+            }
+            .footer {
+                border-color: #d0d7de;
+                color: #656d76;
+            }
+            .footer a {
+                color: #656d76;
+            }
+            .footer a:hover {
+                color: #d29922;
+            }
+            .dot { background: #9a6a1a; }
+            .avatar { border-color: rgba(210, 153, 34, 0.5); }
         }
     </style>
 </head>
@@ -292,97 +361,103 @@
 <div class="container">
 
     <!-- ===== PROFILE SECTION ===== -->
-    <div class="flex flex-row items-center gap-4 profile-row">
+    <header class="flex flex-row items-center gap-4 profile-row">
         <!-- Avatar -->
         <img class="avatar" 
              src="https://ui-avatars.com/api/?name=John+Ogletree&background=d29922&color=0d1117&size=128&font-size=0.4" 
              alt="John Ogletree" />
 
         <!-- Text content -->
-        <div class="flex flex-col profile-text" style="gap: clamp(1px, 0.3vh, 0.5vw); flex: 1; min-width: 0;">
+        <div class="flex flex-col profile-text" style="gap: clamp(4px, 0.4vh, 8px); flex: 1; min-width: 0;">
             <div class="flex flex-row items-center gap-2">
-                <span class="text-white text-2xl font-bold leading-tight truncate">John Ogletree</span>
-                <span class="dot"></span>
+                <h1 class="text-white text-2xl font-bold leading-tight truncate" style="margin: 0;">
+                    John Ogletree
+                </h1>
+                <span class="dot" aria-hidden="true"></span>
+                <span class="sr-only">Active</span>
             </div>
-            <p class="text-muted text-sm leading-normal truncate" style="max-width: 100%;">
-                Digital infra · routing web
+            <p class="text-muted text-base leading-normal truncate" style="max-width: 100%;">
+                Digital infrastructure · routing the web · monolith → micro
             </p>
-            <span class="badge">subdomain hub · active</span>
+            <span class="badge" role="status" aria-live="polite">
+                <span class="dot" aria-hidden="true" style="width: 6px; height: 6px;"></span>
+                subdomain hub · active
+            </span>
         </div>
-    </div>
+    </header>
 
     <!-- ===== LINKS GRID ===== -->
-    <div class="link-grid">
+    <nav class="link-grid" aria-label="Social and professional links">
 
         <a href="https://github.com/jogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">🐙</span>
+            <span class="link-icon" aria-hidden="true">🐙</span>
             <span class="link-label">GitHub</span>
         </a>
 
         <a href="https://x.com/jogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">🐦</span>
+            <span class="link-icon" aria-hidden="true">🐦</span>
             <span class="link-label">X</span>
         </a>
 
         <a href="https://linkedin.com/in/johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">🔗</span>
+            <span class="link-icon" aria-hidden="true">🔗</span>
             <span class="link-label">LinkedIn</span>
         </a>
 
         <a href="https://john-ogletree.substack.com" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">📬</span>
+            <span class="link-icon" aria-hidden="true">📬</span>
             <span class="link-label">Substack</span>
         </a>
 
         <a href="https://youtube.com/@johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">▶️</span>
+            <span class="link-icon" aria-hidden="true">▶️</span>
             <span class="link-label">YouTube</span>
         </a>
 
-        <a href="mailto:john@john-ogletree.me" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">✉️</span>
+        <a href="mailto:john@john-ogletree.me" class="link-item">
+            <span class="link-icon" aria-hidden="true">✉️</span>
             <span class="link-label">Email</span>
         </a>
 
         <a href="https://johnogletree.dev" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">💼</span>
+            <span class="link-icon" aria-hidden="true">💼</span>
             <span class="link-label">Portfolio</span>
         </a>
 
         <a href="https://blog.johnogletree.me" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">📝</span>
+            <span class="link-icon" aria-hidden="true">📝</span>
             <span class="link-label">Blog</span>
         </a>
 
         <a href="https://discord.gg/johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">💬</span>
+            <span class="link-icon" aria-hidden="true">💬</span>
             <span class="link-label">Discord</span>
         </a>
 
         <a href="https://tiktok.com/@johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">🎵</span>
+            <span class="link-icon" aria-hidden="true">🎵</span>
             <span class="link-label">TikTok</span>
         </a>
 
         <a href="https://instagram.com/johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">📸</span>
+            <span class="link-icon" aria-hidden="true">📸</span>
             <span class="link-label">Instagram</span>
         </a>
 
         <a href="https://threads.net/@johnogletree" target="_blank" rel="noopener noreferrer" class="link-item">
-            <span class="link-icon">🧵</span>
+            <span class="link-icon" aria-hidden="true">🧵</span>
             <span class="link-label">Threads</span>
         </a>
 
-    </div>
+    </nav>
 
     <!-- ===== FOOTER ===== -->
-    <div class="footer">
+    <footer class="footer">
         <span>⌘ monolith deprecated · isolated routing</span>
         <span>
             <a href="https://john-ogletree.me" target="_blank">john-ogletree.me</a> · v2
         </span>
-    </div>
+    </footer>
 
 </div>
 
