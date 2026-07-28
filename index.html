@@ -55,7 +55,7 @@
             border-radius: 4px;
         }
 
-        /* ---------- PROFILE ---------- */
+        /* ---------- PROFILE WITH TAPE ---------- */
         .profile {
             text-align: center;
             display: flex;
@@ -63,6 +63,52 @@
             align-items: center;
             gap: clamp(2px, 0.3vh, 6px);
             flex-shrink: 0;
+            position: relative;
+            padding-top: clamp(16px, 2vh, 28px);
+        }
+
+        .profile::before,
+        .profile::after {
+            content: '';
+            position: absolute;
+            top: clamp(6px, 0.8vh, 12px);
+            width: clamp(40px, 6vw, 70px);
+            height: clamp(16px, 2vh, 26px);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 2px;
+            transform: rotate(-3deg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .profile::before {
+            left: clamp(12%, 15vw, 25%);
+            transform: rotate(-4deg);
+        }
+
+        .profile::after {
+            right: clamp(12%, 15vw, 25%);
+            transform: rotate(4deg);
+        }
+
+        .profile .tape-top {
+            position: absolute;
+            top: clamp(-4px, 0vh, 2px);
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: clamp(32px, 5vw, 56px);
+            height: clamp(12px, 1.5vh, 20px);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+            opacity: 0.6;
+            z-index: 2;
+            pointer-events: none;
         }
 
         .avatar {
@@ -73,6 +119,8 @@
             border: 2px solid rgba(210, 153, 34, 0.4);
             background: #1f2429;
             flex-shrink: 0;
+            position: relative;
+            z-index: 1;
         }
 
         .profile h1 {
@@ -81,6 +129,8 @@
             color: #ffffff;
             letter-spacing: -0.3px;
             line-height: 1.2;
+            position: relative;
+            z-index: 1;
         }
 
         .profile .bio {
@@ -89,6 +139,37 @@
             line-height: 1.3;
             max-width: 400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .handle-tape {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: clamp(2px, 0.3vh, 6px) clamp(10px, 1.2vw, 18px);
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(8px, 0.8vh, 11px);
+            color: #8b949e;
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            margin-top: clamp(2px, 0.2vh, 4px);
+            transform: rotate(-1deg);
+        }
+
+        .handle-tape .handle-label {
+            color: #d29922;
+            font-weight: 500;
+        }
+
+        .handle-tape .handle-value {
+            color: #c9d1d9;
         }
 
         .status-badge {
@@ -104,6 +185,8 @@
             font-family: 'Courier New', Courier, monospace;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
         }
 
         .status-dot {
@@ -120,7 +203,7 @@
             100% { opacity: 1; }
         }
 
-        /* ---------- LINKS ---------- */
+        /* ---------- LINKS WITH TAPE HANDLES ---------- */
         .link-grid {
             display: flex;
             flex-direction: column;
@@ -147,6 +230,8 @@
             min-height: clamp(38px, 4.5vh, 48px);
             cursor: pointer;
             position: relative;
+            gap: clamp(6px, 0.6vh, 12px);
+            flex-wrap: wrap;
         }
 
         .link-item:hover {
@@ -174,6 +259,66 @@
             border-color: rgba(210, 153, 34, 0.2);
         }
 
+        /* Link label - the platform name */
+        .link-label {
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            color: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .link-label.mono {
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 0.5px;
+            font-size: 0.9em;
+        }
+
+        /* Handle tape on each link */
+        .link-handle-tape {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: clamp(1px, 0.2vh, 4px) clamp(6px, 0.6vw, 12px);
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(8px, 0.8vh, 11px);
+            color: #8b949e;
+            letter-spacing: 0.2px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+            transform: rotate(-1deg);
+            transition: background 0.2s, border-color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .link-item:hover .link-handle-tape {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(210, 153, 34, 0.15);
+        }
+
+        .link-handle-tape .handle-icon {
+            opacity: 0.5;
+            font-size: 0.85em;
+        }
+
+        .link-handle-tape .handle-text {
+            color: #c9d1d9;
+            font-weight: 400;
+        }
+
+        /* Project handles - slightly different style */
+        .link-item.project .link-handle-tape {
+            background: rgba(210, 153, 34, 0.06);
+            border-color: rgba(210, 153, 34, 0.08);
+        }
+
+        .link-item.project:hover .link-handle-tape {
+            background: rgba(210, 153, 34, 0.1);
+            border-color: rgba(210, 153, 34, 0.2);
+        }
+
         /* ---------- DISABLED STATE ---------- */
         .link-item.disabled {
             opacity: 0.4;
@@ -187,6 +332,10 @@
 
         .link-item.disabled .link-label {
             opacity: 0.6;
+        }
+
+        .link-item.disabled .link-handle-tape {
+            opacity: 0.5;
         }
 
         .link-item.disabled .link-label::after {
@@ -205,17 +354,6 @@
             font-weight: 400;
             letter-spacing: 0.5px;
             color: #d29922;
-        }
-
-        .link-label {
-            font-weight: 500;
-            letter-spacing: 0.2px;
-        }
-
-        .link-label.mono {
-            font-family: 'Courier New', Courier, monospace;
-            letter-spacing: 0.5px;
-            font-size: 0.9em;
         }
 
         /* Category divider */
@@ -295,18 +433,26 @@
 
             .link-item {
                 min-height: clamp(40px, 5vh, 52px);
-                padding: clamp(8px, 1vh, 14px) clamp(6px, 0.8vw, 12px);
-                font-size: clamp(12px, 1.3vh, 15px);
+                padding: clamp(6px, 0.7vh, 10px) clamp(6px, 0.8vw, 12px);
+                font-size: clamp(11px, 1.2vh, 14px);
                 border-radius: clamp(6px, 0.7vh, 10px);
+                flex-direction: column;
+                gap: clamp(2px, 0.2vh, 4px);
+            }
+
+            .link-handle-tape {
+                font-size: clamp(7px, 0.6vh, 9px);
+                padding: clamp(1px, 0.15vh, 3px) clamp(4px, 0.4vw, 8px);
+                transform: rotate(0deg);
             }
 
             .link-item.disabled .link-label::after {
                 content: ' · SOON';
-                font-size: 0.6em;
+                font-size: 0.55em;
             }
             .link-item.demo .link-label::after {
                 content: ' · DEMO';
-                font-size: 0.6em;
+                font-size: 0.55em;
             }
 
             .link-label.mono {
@@ -319,9 +465,13 @@
                 gap: 5px;
             }
             .link-item {
-                font-size: clamp(10px, 1.1vh, 13px);
+                font-size: clamp(9px, 1vh, 12px);
                 min-height: clamp(34px, 4vh, 44px);
-                padding: clamp(6px, 0.7vh, 10px) clamp(4px, 0.5vw, 8px);
+                padding: clamp(4px, 0.5vh, 8px) clamp(4px, 0.5vw, 8px);
+            }
+            .link-handle-tape {
+                font-size: clamp(6px, 0.5vh, 8px);
+                padding: clamp(1px, 0.1vh, 2px) clamp(3px, 0.3vw, 6px);
             }
             .link-item.disabled .link-label::after {
                 content: ' · SOON';
@@ -354,6 +504,21 @@
             .privacy-notice p {
                 font-size: clamp(8px, 0.7vh, 10px);
             }
+            .profile::before,
+            .profile::after {
+                width: clamp(28px, 5vw, 40px);
+                height: clamp(12px, 1.5vh, 18px);
+                top: clamp(4px, 0.5vh, 8px);
+            }
+            .profile .tape-top {
+                width: clamp(24px, 4vw, 36px);
+                height: clamp(10px, 1.2vh, 14px);
+                top: clamp(-2px, 0vh, 2px);
+            }
+            .handle-tape {
+                font-size: clamp(7px, 0.6vh, 9px);
+                padding: clamp(1px, 0.2vh, 4px) clamp(6px, 0.8vw, 12px);
+            }
         }
 
         @media (max-width: 320px) {
@@ -365,6 +530,10 @@
                 min-height: 28px;
                 padding: 4px 3px;
                 border-radius: 4px;
+            }
+            .link-handle-tape {
+                font-size: 5px;
+                padding: 1px 3px;
             }
             .link-item.disabled .link-label::after {
                 content: ' · SOON';
@@ -390,6 +559,15 @@
             .link-item.disabled { opacity: 0.7; border-color: #656d76; filter: none; }
             .status-badge { border-color: #d29922; }
             .privacy-notice { border-color: #d29922; }
+            .profile::before,
+            .profile::after,
+            .profile .tape-top {
+                border-color: rgba(255, 255, 255, 0.3);
+            }
+            .handle-tape,
+            .link-handle-tape {
+                border-color: rgba(255, 255, 255, 0.2);
+            }
         }
 
         /* ---------- LIGHT MODE ---------- */
@@ -405,6 +583,9 @@
             .link-item:hover {
                 background: #eaeef2;
                 border-color: #d29922;
+            }
+            .link-label {
+                color: #1f2328;
             }
             .link-item.project {
                 background: rgba(210, 153, 34, 0.06);
@@ -437,6 +618,34 @@
             }
             .privacy-notice p { color: #656d76; }
             .privacy-notice .highlight { color: #9a6a1a; }
+            .profile::before,
+            .profile::after,
+            .profile .tape-top {
+                background: rgba(0, 0, 0, 0.06);
+                border-color: rgba(0, 0, 0, 0.05);
+            }
+            .handle-tape {
+                background: rgba(0, 0, 0, 0.04);
+                border-color: rgba(0, 0, 0, 0.05);
+            }
+            .handle-tape .handle-value {
+                color: #1f2328;
+            }
+            .link-handle-tape {
+                background: rgba(0, 0, 0, 0.04);
+                border-color: rgba(0, 0, 0, 0.05);
+            }
+            .link-handle-tape .handle-text {
+                color: #1f2328;
+            }
+            .link-item.project .link-handle-tape {
+                background: rgba(210, 153, 34, 0.06);
+                border-color: rgba(210, 153, 34, 0.12);
+            }
+            .link-item.project:hover .link-handle-tape {
+                background: rgba(210, 153, 34, 0.1);
+                border-color: rgba(210, 153, 34, 0.2);
+            }
         }
     </style>
 </head>
@@ -444,13 +653,20 @@
 
 <div class="container">
 
-    <!-- ===== PROFILE ===== -->
+    <!-- ===== PROFILE WITH TAPE ===== -->
     <div class="profile">
+        <div class="tape-top"></div>
         <img class="avatar"
              src="https://ui-avatars.com/api/?name=John+Ogletree&background=d29922&color=0d1117&size=120&font-size=0.4"
              alt="John Ogletree" />
         <h1>John Ogletree</h1>
         <p class="bio">Digital infrastructure · routing the web · monolith → micro</p>
+
+        <span class="handle-tape">
+            <span class="handle-label">✉</span>
+            <span class="handle-value">@john0ogletree</span>
+        </span>
+
         <span class="status-badge">
             <span class="status-dot"></span>
             subdomain hub · active
@@ -464,82 +680,158 @@
 
         <a href="https://github.com/john-ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">GitHub</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">⌨</span>
+                <span class="handle-text">john-ogletree</span>
+            </span>
         </a>
 
         <a href="https://x.com/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">X</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🐦</span>
+                <span class="handle-text">@john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://linkedin.com/in/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">LinkedIn</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">💼</span>
+                <span class="handle-text">in/john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://bsky.app/profile/john0ogletree.bsky.social" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">Bluesky</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🦋</span>
+                <span class="handle-text">@john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://instagram.com/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">Instagram</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">📸</span>
+                <span class="handle-text">@john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://tiktok.com/@john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">TikTok</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🎵</span>
+                <span class="handle-text">@john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://threads.net/@john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">Threads</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🧵</span>
+                <span class="handle-text">@john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://youtube.com/@john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">YouTube</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">▶</span>
+                <span class="handle-text">@john0ogletree</span>
+            </span>
         </a>
 
         <div class="category-divider">Projects</div>
 
         <span class="link-item disabled">
-            <span class="link-label mono">SWAY · Privacy CAPTCHA</span>
+            <span class="link-label mono">SWAY</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🔒</span>
+                <span class="handle-text">Privacy CAPTCHA</span>
+            </span>
         </span>
 
         <a href="https://john-ogletree.github.io/ODO/" target="_blank" rel="noopener noreferrer" class="link-item project demo">
-            <span class="link-label mono">ODO · On-Device OAuth</span>
+            <span class="link-label mono">ODO</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🔑</span>
+                <span class="handle-text">On-Device OAuth</span>
+            </span>
         </a>
 
         <a href="https://john-ogletree.github.io/T.A.P/" target="_blank" rel="noopener noreferrer" class="link-item project">
-            <span class="link-label mono">T.A.P · Translation Engine</span>
+            <span class="link-label mono">T.A.P</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🌐</span>
+                <span class="handle-text">Translation Engine</span>
+            </span>
         </a>
 
         <a href="https://john-ogletree.github.io/weather/" target="_blank" rel="noopener noreferrer" class="link-item project">
-            <span class="link-label">Weather Utility</span>
+            <span class="link-label">Weather</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">☀️</span>
+                <span class="handle-text">Utility</span>
+            </span>
         </a>
 
         <a href="https://john-ogletree.github.io/dns/" target="_blank" rel="noopener noreferrer" class="link-item project">
-            <span class="link-label">DNS Lookup</span>
+            <span class="link-label">DNS</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🔍</span>
+                <span class="handle-text">Lookup</span>
+            </span>
         </a>
 
         <a href="https://john-ogletree.github.io/vanilla-screen-detector/" target="_blank" rel="noopener noreferrer" class="link-item project">
-            <span class="link-label">Vanilla Screen Share</span>
+            <span class="link-label">Screen Share</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🖥</span>
+                <span class="handle-text">Vanilla</span>
+            </span>
         </a>
 
         <a href="https://john-ogletree.github.io/tdc/" target="_blank" rel="noopener noreferrer" class="link-item project">
-            <span class="link-label mono">Debt Clock · TDC</span>
+            <span class="link-label mono">TDC</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">💰</span>
+                <span class="handle-text">Debt Clock</span>
+            </span>
         </a>
 
         <a href="https://blog.john0ogletree.com" target="_blank" rel="noopener noreferrer" class="link-item project">
             <span class="link-label">Blog</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">✍️</span>
+                <span class="handle-text">john0ogletree.com</span>
+            </span>
         </a>
 
         <div class="category-divider">Support</div>
 
         <a href="https://gofundme.com/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">GoFundMe</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">❤️</span>
+                <span class="handle-text">john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://cash.app/$john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">Cash App</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">💵</span>
+                <span class="handle-text">$john0ogletree</span>
+            </span>
         </a>
 
         <a href="https://john0ogletree.substack.com" target="_blank" rel="noopener noreferrer" class="link-item">
             <span class="link-label">Substack</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">📬</span>
+                <span class="handle-text">john0ogletree</span>
+            </span>
         </a>
 
     </div>
