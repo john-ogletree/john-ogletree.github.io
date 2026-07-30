@@ -259,6 +259,27 @@
             border-color: rgba(210, 153, 34, 0.2);
         }
 
+        /* Music links - subtle purple tint */
+        .link-item.music {
+            background: rgba(128, 90, 213, 0.04);
+            border-color: rgba(128, 90, 213, 0.08);
+        }
+
+        .link-item.music:hover {
+            background: rgba(128, 90, 213, 0.08);
+            border-color: rgba(128, 90, 213, 0.2);
+        }
+
+        .link-item.music .link-handle-tape {
+            background: rgba(128, 90, 213, 0.06);
+            border-color: rgba(128, 90, 213, 0.08);
+        }
+
+        .link-item.music:hover .link-handle-tape {
+            background: rgba(128, 90, 213, 0.1);
+            border-color: rgba(128, 90, 213, 0.2);
+        }
+
         /* Link label - the platform name */
         .link-label {
             font-weight: 600;
@@ -595,6 +616,22 @@
                 background: rgba(210, 153, 34, 0.1);
                 border-color: rgba(210, 153, 34, 0.3);
             }
+            .link-item.music {
+                background: rgba(128, 90, 213, 0.06);
+                border-color: rgba(128, 90, 213, 0.12);
+            }
+            .link-item.music:hover {
+                background: rgba(128, 90, 213, 0.1);
+                border-color: rgba(128, 90, 213, 0.25);
+            }
+            .link-item.music .link-handle-tape {
+                background: rgba(128, 90, 213, 0.06);
+                border-color: rgba(128, 90, 213, 0.1);
+            }
+            .link-item.music:hover .link-handle-tape {
+                background: rgba(128, 90, 213, 0.1);
+                border-color: rgba(128, 90, 213, 0.2);
+            }
             .link-item.disabled {
                 background: rgba(0, 0, 0, 0.03);
                 border-color: rgba(0, 0, 0, 0.06);
@@ -676,6 +713,7 @@
     <!-- ===== LINKS ===== -->
     <div class="link-grid">
 
+        <!-- ===== SOCIAL ===== -->
         <div class="category-divider">Social</div>
 
         <a href="https://github.com/john-ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
@@ -742,7 +780,19 @@
             </span>
         </a>
 
-        <div class="category-divider">Projects</div>
+        <!-- ===== MUSIC ===== -->
+        <div class="category-divider">Music</div>
+
+        <a href="https://youtube.com/playlist?list=PLlgYAhhpPaEUTEmc0nDg4nT5wYD0bOJ17&si=z-YEBTVBtv7X53Th" target="_blank" rel="noopener noreferrer" class="link-item music">
+            <span class="link-label">Daily Playlist</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🎧</span>
+                <span class="handle-text">Only Human</span>
+            </span>
+        </a>
+
+        <!-- ===== DEV PROJECTS ===== -->
+        <div class="category-divider">Dev Projects</div>
 
         <span class="link-item disabled">
             <span class="link-label mono">SWAY</span>
@@ -808,14 +858,7 @@
             </span>
         </a>
 
-        <a href="https://youtube.com/playlist?list=PLlgYAhhpPaEUTEmc0nDg4nT5wYD0bOJ17&si=z-YEBTVBtv7X53Th" target="_blank" rel="noopener noreferrer" class="link-item project">
-            <span class="link-label">Daily Playlist</span>
-            <span class="link-handle-tape">
-                <span class="handle-icon">🎧</span>
-                <span class="handle-text">Only Human</span>
-            </span>
-        </a>
-
+        <!-- ===== SUPPORT ===== -->
         <div class="category-divider">Support</div>
 
         <a href="https://gofundme.com/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item">
