@@ -260,6 +260,27 @@
             border-color: rgba(46, 160, 67, 0.2);
         }
 
+        /* Store links - subtle blue tint */
+        .link-item.store {
+            background: rgba(31, 136, 229, 0.04);
+            border-color: rgba(31, 136, 229, 0.08);
+        }
+
+        .link-item.store:hover {
+            background: rgba(31, 136, 229, 0.08);
+            border-color: rgba(31, 136, 229, 0.2);
+        }
+
+        .link-item.store .link-handle-tape {
+            background: rgba(31, 136, 229, 0.06);
+            border-color: rgba(31, 136, 229, 0.08);
+        }
+
+        .link-item.store:hover .link-handle-tape {
+            background: rgba(31, 136, 229, 0.1);
+            border-color: rgba(31, 136, 229, 0.2);
+        }
+
         /* Link label - the platform name */
         .link-label {
             font-weight: 600;
@@ -618,6 +639,22 @@
                 background: rgba(46, 160, 67, 0.1);
                 border-color: rgba(46, 160, 67, 0.2);
             }
+            .link-item.store {
+                background: rgba(31, 136, 229, 0.06);
+                border-color: rgba(31, 136, 229, 0.12);
+            }
+            .link-item.store:hover {
+                background: rgba(31, 136, 229, 0.1);
+                border-color: rgba(31, 136, 229, 0.25);
+            }
+            .link-item.store .link-handle-tape {
+                background: rgba(31, 136, 229, 0.06);
+                border-color: rgba(31, 136, 229, 0.1);
+            }
+            .link-item.store:hover .link-handle-tape {
+                background: rgba(31, 136, 229, 0.1);
+                border-color: rgba(31, 136, 229, 0.2);
+            }
             .link-item.disabled {
                 background: rgba(0, 0, 0, 0.03);
                 border-color: rgba(0, 0, 0, 0.06);
@@ -845,6 +882,17 @@
             <span class="link-handle-tape">
                 <span class="handle-icon">🌙</span>
                 <span class="handle-text">Daily Reset</span>
+            </span>
+        </a>
+
+        <!-- ===== STORE ===== -->
+        <div class="category-divider">Store</div>
+
+        <a href="https://www.zazzle.com/store/john0ogletree/products" target="_blank" rel="noopener noreferrer" class="link-item store">
+            <span class="link-label">Catalog</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">🛍️</span>
+                <span class="handle-text">Zazzle</span>
             </span>
         </a>
 
