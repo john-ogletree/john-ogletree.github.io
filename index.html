@@ -239,6 +239,27 @@
             border-color: rgba(128, 90, 213, 0.2);
         }
 
+        /* Client links - subtle green tint */
+        .link-item.client {
+            background: rgba(46, 160, 67, 0.04);
+            border-color: rgba(46, 160, 67, 0.08);
+        }
+
+        .link-item.client:hover {
+            background: rgba(46, 160, 67, 0.08);
+            border-color: rgba(46, 160, 67, 0.2);
+        }
+
+        .link-item.client .link-handle-tape {
+            background: rgba(46, 160, 67, 0.06);
+            border-color: rgba(46, 160, 67, 0.08);
+        }
+
+        .link-item.client:hover .link-handle-tape {
+            background: rgba(46, 160, 67, 0.1);
+            border-color: rgba(46, 160, 67, 0.2);
+        }
+
         /* Link label - the platform name */
         .link-label {
             font-weight: 600;
@@ -520,7 +541,6 @@
 
         /* ---------- REDUCED MOTION ---------- */
         @media (prefers-reduced-motion: reduce) {
-            .status-dot { animation: none; }
             .link-item { transition: none; }
             .link-item:hover { transform: none; }
         }
@@ -581,6 +601,22 @@
             .link-item.music:hover .link-handle-tape {
                 background: rgba(128, 90, 213, 0.1);
                 border-color: rgba(128, 90, 213, 0.2);
+            }
+            .link-item.client {
+                background: rgba(46, 160, 67, 0.06);
+                border-color: rgba(46, 160, 67, 0.12);
+            }
+            .link-item.client:hover {
+                background: rgba(46, 160, 67, 0.1);
+                border-color: rgba(46, 160, 67, 0.25);
+            }
+            .link-item.client .link-handle-tape {
+                background: rgba(46, 160, 67, 0.06);
+                border-color: rgba(46, 160, 67, 0.1);
+            }
+            .link-item.client:hover .link-handle-tape {
+                background: rgba(46, 160, 67, 0.1);
+                border-color: rgba(46, 160, 67, 0.2);
             }
             .link-item.disabled {
                 background: rgba(0, 0, 0, 0.03);
@@ -809,6 +845,17 @@
             <span class="link-handle-tape">
                 <span class="handle-icon">🌙</span>
                 <span class="handle-text">Daily Reset</span>
+            </span>
+        </a>
+
+        <!-- ===== CLIENTS ===== -->
+        <div class="category-divider">Clients</div>
+
+        <a href="https://vineyardaugusta.org/" target="_blank" rel="noopener noreferrer" class="link-item client">
+            <span class="link-label">Vineyard Church</span>
+            <span class="link-handle-tape">
+                <span class="handle-icon">⛪</span>
+                <span class="handle-text">Augusta, GA</span>
             </span>
         </a>
 
