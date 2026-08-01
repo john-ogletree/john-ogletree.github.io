@@ -55,7 +55,7 @@
             border-radius: 4px;
         }
 
-        /* ---------- PROFILE WITH TAPE ---------- */
+        /* ---------- PROFILE WITH PHILOSOPHY ---------- */
         .profile {
             text-align: center;
             display: flex;
@@ -131,6 +131,21 @@
             line-height: 1.2;
             position: relative;
             z-index: 1;
+        }
+
+        /* ----- PHILOSOPHY TAGLINE ----- */
+        .philosophy-tagline {
+            font-size: clamp(11px, 1.2vh, 14px);
+            color: #d29922;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.4;
+            padding: 0 clamp(8px, 1vw, 16px);
         }
 
         .handle-tape {
@@ -516,6 +531,10 @@
             .profile h1 {
                 font-size: 15px;
             }
+            .philosophy-tagline {
+                font-size: clamp(9px, 0.9vh, 11px);
+                padding: 0 clamp(4px, 0.5vw, 8px);
+            }
             .privacy-notice p {
                 font-size: clamp(8px, 0.7vh, 10px);
             }
@@ -558,6 +577,9 @@
                 content: ' · DEMO';
                 font-size: 0.4em;
             }
+            .philosophy-tagline {
+                font-size: 8px;
+            }
         }
 
         /* ---------- REDUCED MOTION ---------- */
@@ -580,6 +602,10 @@
             .handle-tape,
             .link-handle-tape {
                 border-color: rgba(255, 255, 255, 0.2);
+            }
+            .philosophy-tagline {
+                color: #d29922;
+                opacity: 1;
             }
         }
 
@@ -700,6 +726,10 @@
                 background: rgba(210, 153, 34, 0.1);
                 border-color: rgba(210, 153, 34, 0.2);
             }
+            .philosophy-tagline {
+                color: #9a6a1a;
+                opacity: 0.85;
+            }
         }
     </style>
 </head>
@@ -707,13 +737,16 @@
 
 <div class="container">
 
-    <!-- ===== PROFILE WITH TAPE ===== -->
+    <!-- ===== PROFILE WITH PHILOSOPHY ===== -->
     <div class="profile">
         <div class="tape-top"></div>
         <img class="avatar"
              src="https://ui-avatars.com/api/?name=John+Ogletree&background=d29922&color=0d1117&size=120&font-size=0.4"
              alt="John Ogletree" />
         <h1>John Ogletree</h1>
+
+        <!-- PHILOSOPHY TAGLINE -->
+        <p class="philosophy-tagline">building in the open · local-first · privacy-first</p>
 
         <span class="handle-tape">
             <span class="handle-label">✉</span>
