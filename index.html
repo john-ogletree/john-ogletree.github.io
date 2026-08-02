@@ -12,6 +12,11 @@
             padding: 0;
         }
 
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
         html, body {
             height: 100%;
             width: 100%;
@@ -25,9 +30,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: clamp(8px, 1.5vh, 20px);
+            padding: clamp(6px, 1.5vh, 24px);
             margin: 0;
-            height: 100vh;
+            min-height: 100dvh; /* dynamic viewport height */
             overflow: hidden;
         }
 
@@ -36,16 +41,16 @@
             width: 100%;
             max-width: 600px;
             height: 100%;
-            max-height: 100vh;
+            max-height: 100dvh;
             display: flex;
             flex-direction: column;
-            gap: clamp(6px, 0.8vh, 12px);
+            gap: clamp(4px, 0.6vh, 12px);
             overflow-y: auto;
-            padding: clamp(4px, 0.5vh, 8px) 0;
+            padding: clamp(2px, 0.4vh, 8px) 0;
         }
 
         .container::-webkit-scrollbar {
-            width: 4px;
+            width: 3px;
         }
         .container::-webkit-scrollbar-track {
             background: transparent;
@@ -64,16 +69,16 @@
             gap: clamp(2px, 0.3vh, 6px);
             flex-shrink: 0;
             position: relative;
-            padding-top: clamp(16px, 2vh, 28px);
+            padding-top: clamp(12px, 1.8vh, 28px);
         }
 
         .profile::before,
         .profile::after {
             content: '';
             position: absolute;
-            top: clamp(6px, 0.8vh, 12px);
-            width: clamp(40px, 6vw, 70px);
-            height: clamp(16px, 2vh, 26px);
+            top: clamp(4px, 0.6vh, 12px);
+            width: clamp(30px, 5vw, 70px);
+            height: clamp(12px, 1.5vh, 26px);
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -96,11 +101,11 @@
 
         .profile .tape-top {
             position: absolute;
-            top: clamp(-4px, 0vh, 2px);
+            top: clamp(-3px, -0.2vh, 2px);
             left: 50%;
             transform: translateX(-50%) rotate(-2deg);
-            width: clamp(32px, 5vw, 56px);
-            height: clamp(12px, 1.5vh, 20px);
+            width: clamp(24px, 4vw, 56px);
+            height: clamp(10px, 1.2vh, 20px);
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -112,8 +117,8 @@
         }
 
         .avatar {
-            width: clamp(56px, 8vh, 80px);
-            height: clamp(56px, 8vh, 80px);
+            width: clamp(48px, 8vh, 80px);
+            height: clamp(48px, 8vh, 80px);
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid rgba(210, 153, 34, 0.4);
@@ -124,7 +129,7 @@
         }
 
         .profile h1 {
-            font-size: clamp(16px, 2vh, 24px);
+            font-size: clamp(18px, 2.2vh, 28px);
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.3px;
@@ -133,9 +138,8 @@
             z-index: 1;
         }
 
-        /* ----- PHILOSOPHY TAGLINE ----- */
         .philosophy-tagline {
-            font-size: clamp(11px, 1.2vh, 14px);
+            font-size: clamp(11px, 1.2vh, 15px);
             color: #d29922;
             font-weight: 400;
             letter-spacing: 0.3px;
@@ -155,10 +159,10 @@
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: clamp(2px, 0.3vh, 6px) clamp(10px, 1.2vw, 18px);
+            padding: clamp(2px, 0.3vh, 6px) clamp(8px, 1vw, 18px);
             border-radius: 4px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: clamp(8px, 0.8vh, 11px);
+            font-size: clamp(8px, 0.8vh, 12px);
             color: #8b949e;
             letter-spacing: 0.3px;
             position: relative;
@@ -181,7 +185,7 @@
         .link-grid {
             display: flex;
             flex-direction: column;
-            gap: clamp(4px, 0.5vh, 8px);
+            gap: clamp(4px, 0.4vh, 8px);
             width: 100%;
             flex-shrink: 0;
         }
@@ -192,19 +196,19 @@
             justify-content: center;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: clamp(6px, 0.8vh, 10px);
-            padding: clamp(8px, 1vh, 14px) clamp(12px, 1.5vw, 18px);
+            border-radius: clamp(6px, 0.7vh, 12px);
+            padding: clamp(6px, 0.7vh, 14px) clamp(10px, 1.2vw, 20px);
             text-decoration: none;
             color: #c9d1d9;
-            font-size: clamp(13px, 1.4vh, 16px);
+            font-size: clamp(12px, 1.3vh, 17px);
             font-weight: 500;
             transition: background 0.2s, border-color 0.2s, transform 0.1s;
             text-align: center;
             width: 100%;
-            min-height: clamp(38px, 4.5vh, 48px);
+            min-height: clamp(36px, 4.5vh, 52px);
             cursor: pointer;
             position: relative;
-            gap: clamp(6px, 0.6vh, 12px);
+            gap: clamp(4px, 0.5vh, 12px);
             flex-wrap: wrap;
         }
 
@@ -318,10 +322,10 @@
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: clamp(1px, 0.2vh, 4px) clamp(6px, 0.6vw, 12px);
+            padding: clamp(1px, 0.15vh, 4px) clamp(4px, 0.5vw, 12px);
             border-radius: 3px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: clamp(8px, 0.8vh, 11px);
+            font-size: clamp(7px, 0.7vh, 12px);
             color: #8b949e;
             letter-spacing: 0.2px;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
@@ -377,7 +381,7 @@
 
         .link-item.disabled .link-label::after {
             content: ' · SOON';
-            font-size: 0.65em;
+            font-size: 0.6em;
             opacity: 0.5;
             font-weight: 400;
             letter-spacing: 0.5px;
@@ -386,7 +390,7 @@
         /* ---------- DEMO BADGE ---------- */
         .link-item.demo .link-label::after {
             content: ' · DEMO';
-            font-size: 0.65em;
+            font-size: 0.6em;
             opacity: 0.6;
             font-weight: 400;
             letter-spacing: 0.5px;
@@ -398,9 +402,9 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin: clamp(2px, 0.3vh, 6px) 0;
+            margin: clamp(2px, 0.2vh, 6px) 0;
             color: #8b949e;
-            font-size: clamp(9px, 0.8vh, 11px);
+            font-size: clamp(8px, 0.7vh, 12px);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -426,8 +430,8 @@
         /* ---------- PRIVACY NOTICE ---------- */
         .privacy-notice {
             text-align: center;
-            padding: clamp(6px, 0.6vh, 12px) clamp(8px, 1vw, 16px);
-            border-radius: clamp(6px, 0.8vh, 10px);
+            padding: clamp(4px, 0.5vh, 12px) clamp(6px, 0.8vw, 16px);
+            border-radius: clamp(6px, 0.7vh, 12px);
             background: rgba(210, 153, 34, 0.04);
             border: 1px solid rgba(210, 153, 34, 0.08);
             flex-shrink: 0;
@@ -435,7 +439,7 @@
         }
 
         .privacy-notice p {
-            font-size: clamp(9px, 0.9vh, 12px);
+            font-size: clamp(8px, 0.8vh, 13px);
             color: #8b949e;
             line-height: 1.4;
             margin: 0;
@@ -458,38 +462,38 @@
             .link-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: clamp(6px, 0.8vh, 10px);
+                gap: clamp(4px, 0.5vh, 10px);
             }
 
             .link-grid .category-divider {
                 display: flex;
                 grid-column: 1 / -1;
                 width: 100%;
-                margin: clamp(4px, 0.5vh, 8px) 0;
+                margin: clamp(2px, 0.3vh, 8px) 0;
             }
 
             .link-item {
-                min-height: clamp(40px, 5vh, 52px);
-                padding: clamp(6px, 0.7vh, 10px) clamp(6px, 0.8vw, 12px);
-                font-size: clamp(11px, 1.2vh, 14px);
-                border-radius: clamp(6px, 0.7vh, 10px);
+                min-height: clamp(38px, 4.5vh, 52px);
+                padding: clamp(4px, 0.5vh, 12px) clamp(4px, 0.5vw, 12px);
+                font-size: clamp(10px, 1.1vh, 15px);
+                border-radius: clamp(5px, 0.6vh, 12px);
                 flex-direction: column;
-                gap: clamp(2px, 0.2vh, 4px);
+                gap: clamp(1px, 0.15vh, 4px);
             }
 
             .link-handle-tape {
-                font-size: clamp(7px, 0.6vh, 9px);
-                padding: clamp(1px, 0.15vh, 3px) clamp(4px, 0.4vw, 8px);
+                font-size: clamp(6px, 0.5vh, 10px);
+                padding: clamp(1px, 0.1vh, 3px) clamp(3px, 0.3vw, 8px);
                 transform: rotate(0deg);
             }
 
             .link-item.disabled .link-label::after {
                 content: ' · SOON';
-                font-size: 0.55em;
+                font-size: 0.5em;
             }
             .link-item.demo .link-label::after {
                 content: ' · DEMO';
-                font-size: 0.55em;
+                font-size: 0.5em;
             }
 
             .link-label.mono {
@@ -499,75 +503,77 @@
 
         @media (max-width: 400px) {
             .link-grid {
-                gap: 5px;
+                gap: 4px;
             }
             .link-item {
-                font-size: clamp(9px, 1vh, 12px);
-                min-height: clamp(34px, 4vh, 44px);
-                padding: clamp(4px, 0.5vh, 8px) clamp(4px, 0.5vw, 8px);
+                font-size: clamp(8px, 0.9vh, 12px);
+                min-height: clamp(32px, 3.8vh, 44px);
+                padding: clamp(3px, 0.4vh, 8px) clamp(3px, 0.4vw, 8px);
+                gap: 1px;
             }
             .link-handle-tape {
-                font-size: clamp(6px, 0.5vh, 8px);
-                padding: clamp(1px, 0.1vh, 2px) clamp(3px, 0.3vw, 6px);
+                font-size: clamp(5px, 0.4vh, 9px);
+                padding: 1px 2px;
             }
             .link-item.disabled .link-label::after {
                 content: ' · SOON';
-                font-size: 0.5em;
+                font-size: 0.45em;
             }
             .link-item.demo .link-label::after {
                 content: ' · DEMO';
-                font-size: 0.5em;
+                font-size: 0.45em;
             }
             .link-label.mono {
                 font-size: 0.8em;
             }
             .category-divider {
-                font-size: clamp(7px, 0.6vh, 9px);
+                font-size: clamp(6px, 0.5vh, 9px);
             }
             .avatar {
-                width: 44px;
-                height: 44px;
+                width: clamp(36px, 6vh, 48px);
+                height: clamp(36px, 6vh, 48px);
             }
             .profile h1 {
-                font-size: 15px;
+                font-size: clamp(14px, 1.8vh, 18px);
             }
             .philosophy-tagline {
-                font-size: clamp(9px, 0.9vh, 11px);
+                font-size: clamp(8px, 0.8vh, 11px);
                 padding: 0 clamp(4px, 0.5vw, 8px);
             }
+            .handle-tape {
+                font-size: clamp(6px, 0.6vh, 9px);
+                padding: 1px 6px;
+            }
             .privacy-notice p {
-                font-size: clamp(8px, 0.7vh, 10px);
+                font-size: clamp(7px, 0.6vh, 10px);
             }
             .profile::before,
             .profile::after {
-                width: clamp(28px, 5vw, 40px);
-                height: clamp(12px, 1.5vh, 18px);
-                top: clamp(4px, 0.5vh, 8px);
+                width: clamp(20px, 4vw, 40px);
+                height: clamp(8px, 1vh, 18px);
+                top: clamp(3px, 0.4vh, 8px);
             }
             .profile .tape-top {
-                width: clamp(24px, 4vw, 36px);
-                height: clamp(10px, 1.2vh, 14px);
-                top: clamp(-2px, 0vh, 2px);
-            }
-            .handle-tape {
-                font-size: clamp(7px, 0.6vh, 9px);
-                padding: clamp(1px, 0.2vh, 4px) clamp(6px, 0.8vw, 12px);
+                width: clamp(18px, 3vw, 36px);
+                height: clamp(8px, 0.8vh, 14px);
+                top: clamp(-2px, -0.1vh, 2px);
             }
         }
 
         @media (max-width: 320px) {
             .link-grid {
-                gap: 4px;
+                gap: 3px;
             }
             .link-item {
-                font-size: 8px;
-                min-height: 28px;
-                padding: 4px 3px;
-                border-radius: 4px;
+                font-size: 7px;
+                min-height: 26px;
+                padding: 2px 2px;
+                border-radius: 3px;
+                gap: 1px;
             }
             .link-handle-tape {
                 font-size: 5px;
-                padding: 1px 3px;
+                padding: 1px 2px;
             }
             .link-item.disabled .link-label::after {
                 content: ' · SOON';
@@ -577,8 +583,26 @@
                 content: ' · DEMO';
                 font-size: 0.4em;
             }
+            .avatar {
+                width: 32px;
+                height: 32px;
+            }
+            .profile h1 {
+                font-size: 12px;
+            }
             .philosophy-tagline {
-                font-size: 8px;
+                font-size: 7px;
+            }
+            .handle-tape {
+                font-size: 6px;
+                padding: 1px 4px;
+            }
+            .privacy-notice p {
+                font-size: 6px;
+            }
+            .category-divider {
+                font-size: 5px;
+                margin: 1px 0;
             }
         }
 
@@ -731,6 +755,60 @@
                 opacity: 0.85;
             }
         }
+
+        /* ---------- LANDSCAPE MODE ---------- */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .avatar {
+                width: clamp(32px, 5vh, 48px);
+                height: clamp(32px, 5vh, 48px);
+            }
+            .profile h1 {
+                font-size: clamp(14px, 1.8vh, 20px);
+            }
+            .philosophy-tagline {
+                font-size: clamp(9px, 1vh, 12px);
+            }
+            .handle-tape {
+                font-size: clamp(7px, 0.7vh, 10px);
+            }
+            .link-item {
+                min-height: clamp(28px, 3.5vh, 40px);
+                padding: clamp(3px, 0.4vh, 8px) clamp(6px, 0.8vw, 12px);
+                font-size: clamp(10px, 1.1vh, 14px);
+            }
+            .link-handle-tape {
+                font-size: clamp(6px, 0.5vh, 9px);
+            }
+            .profile {
+                padding-top: clamp(8px, 1.2vh, 16px);
+                gap: clamp(1px, 0.2vh, 4px);
+            }
+            .profile::before,
+            .profile::after {
+                width: clamp(20px, 3vw, 40px);
+                height: clamp(8px, 1vh, 16px);
+                top: clamp(3px, 0.4vh, 8px);
+            }
+            .profile .tape-top {
+                width: clamp(18px, 3vw, 32px);
+                height: clamp(8px, 0.8vh, 14px);
+            }
+            .container {
+                gap: clamp(2px, 0.3vh, 8px);
+                padding: clamp(1px, 0.2vh, 4px) 0;
+            }
+            .link-grid {
+                gap: clamp(2px, 0.3vh, 6px);
+            }
+            .privacy-notice p {
+                font-size: clamp(7px, 0.6vh, 10px);
+                line-height: 1.2;
+            }
+            .category-divider {
+                font-size: clamp(6px, 0.5vh, 9px);
+                margin: clamp(1px, 0.15vh, 4px) 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -745,7 +823,6 @@
              alt="John Ogletree" />
         <h1>John Ogletree</h1>
 
-        <!-- PHILOSOPHY TAGLINE -->
         <p class="philosophy-tagline">building in the open · local-first · privacy-first</p>
 
         <span class="handle-tape">
