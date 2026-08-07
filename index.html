@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -37,7 +37,6 @@
       overflow: hidden;
     }
 
-    /* subtle noise overlay via gradient + pseudo */
     body::before {
       content: '';
       position: fixed;
@@ -763,3 +762,408 @@
         animation: none;
       }
       .privacy-notice .blink-cursor {
+        animation: none;
+        opacity: 1;
+      }
+      .profile h1 .cursor {
+        animation: none;
+        opacity: 1;
+      }
+    }
+
+    /* ---------- HIGH CONTRAST ---------- */
+    @media (prefers-contrast: high) {
+      .link-item {
+        border-color: #8b949e;
+      }
+      .link-item:hover {
+        border-color: #d4a373;
+      }
+      .link-item.disabled {
+        opacity: 0.7;
+        border-color: #656d76;
+        filter: none;
+      }
+      .privacy-notice {
+        border-color: #00ff41;
+      }
+      .profile {
+        border-color: #d4a373;
+      }
+      .philosophy-tagline {
+        color: #d4a373;
+        opacity: 1;
+      }
+    }
+
+    /* ---------- LIGHT MODE ---------- */
+    @media (prefers-color-scheme: light) {
+      body {
+        background: #f5f0eb;
+        color: #1f2328;
+      }
+      body::before {
+        background:
+          radial-gradient(ellipse at 20% 50%, rgba(212, 163, 115, 0.08) 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 50%, rgba(108, 92, 231, 0.06) 0%, transparent 60%);
+      }
+      .profile h1 {
+        color: #1f2328;
+      }
+      .profile {
+        background: rgba(212, 163, 115, 0.06);
+        border-color: rgba(212, 163, 115, 0.12);
+      }
+      .link-item {
+        background: rgba(0, 0, 0, 0.02);
+        border-color: rgba(0, 0, 0, 0.06);
+        color: #1f2328;
+      }
+      .link-label {
+        color: #1f2328;
+      }
+      .link-item.social {
+        background: rgba(255, 107, 107, 0.04);
+        border-color: rgba(255, 107, 107, 0.1);
+      }
+      .link-item.social:hover {
+        background: rgba(255, 107, 107, 0.08);
+        border-color: rgba(255, 107, 107, 0.2);
+      }
+      .link-item.dev {
+        background: rgba(0, 200, 50, 0.04);
+        border-color: rgba(0, 200, 50, 0.08);
+      }
+      .link-item.dev:hover {
+        background: rgba(0, 200, 50, 0.08);
+        border-color: rgba(0, 200, 50, 0.2);
+      }
+      .link-item.dev .link-label {
+        color: #00882a;
+      }
+      .link-item.store {
+        background: rgba(212, 163, 115, 0.06);
+        border-color: rgba(212, 163, 115, 0.12);
+      }
+      .link-item.store:hover {
+        background: rgba(212, 163, 115, 0.1);
+        border-color: rgba(212, 163, 115, 0.25);
+      }
+      .link-item.client {
+        background: rgba(255, 215, 0, 0.06);
+        border-color: rgba(255, 215, 0, 0.12);
+      }
+      .link-item.client:hover {
+        background: rgba(255, 215, 0, 0.1);
+        border-color: rgba(255, 215, 0, 0.2);
+      }
+      .link-item.support {
+        background: rgba(255, 107, 107, 0.04);
+        border-color: rgba(255, 107, 107, 0.08);
+      }
+      .link-item.support:hover {
+        background: rgba(255, 107, 107, 0.08);
+        border-color: rgba(255, 107, 107, 0.2);
+      }
+      .link-item.disabled {
+        background: rgba(0, 0, 0, 0.03);
+        border-color: rgba(0, 0, 0, 0.06);
+        opacity: 0.4;
+        filter: grayscale(0.3);
+      }
+      .link-item.demo .link-label::after {
+        color: #9a6a1a;
+      }
+      .category-divider {
+        color: #656d76;
+      }
+      .category-divider::after,
+      .category-divider::before {
+        background: #d0d7de;
+      }
+      .avatar {
+        border-color: rgba(212, 163, 115, 0.5);
+      }
+      .privacy-notice {
+        background: rgba(0, 200, 50, 0.03);
+        border-color: rgba(0, 200, 50, 0.08);
+      }
+      .privacy-notice p {
+        color: #656d76;
+      }
+      .privacy-notice .highlight {
+        color: #00882a;
+      }
+      .privacy-notice .highlight.accent {
+        color: #9a6a1a;
+      }
+      .profile::before,
+      .profile::after {
+        opacity: 0.3;
+      }
+      .philosophy-tagline {
+        color: #9a6a1a;
+        opacity: 0.85;
+      }
+      .profile .tape-top {
+        background: rgba(212, 163, 115, 0.15);
+        border-color: rgba(212, 163, 115, 0.1);
+      }
+      .link-handle-tape {
+        background: rgba(0, 0, 0, 0.04);
+        border-color: rgba(0, 0, 0, 0.05);
+      }
+      .link-handle-tape .handle-text {
+        color: #1f2328;
+      }
+      .scanlines {
+        opacity: 0.1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- scanline overlay -->
+  <div class="scanlines"></div>
+
+  <div class="container">
+
+    <!-- ===== PROFILE (coffee/warm) ===== -->
+    <div class="profile">
+      <div class="tape-top"></div>
+      <img class="avatar"
+      src="https://ui-avatars.com/api/?name=John+Ogletree&background=d4a373&color=0a0a0f&size=120&font-size=0.4"
+      alt="John Ogletree" />
+      <h1>
+        John Ogletree
+        <span class="cursor"></span>
+      </h1>
+
+      <p class="philosophy-tagline">
+        building in the open <span class="divider">·</span> local-first <span class="divider">·</span> privacy-first
+      </p>
+
+      <div class="steam">~ ~ ~ ☕ 🎬 🕹️ 💻 ~ ~ ~</div>
+    </div>
+
+    <!-- ===== LINKS ===== -->
+    <div class="link-grid">
+
+      <!-- ===== SOCIAL (arcade) ===== -->
+      <div class="category-divider social">Social</div>
+
+      <a href="https://github.com/john-ogletree" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">GitHub</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">⌨</span>
+          <span class="handle-text">john-ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://x.com/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">X</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🐦</span>
+          <span class="handle-text">@john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://linkedin.com/in/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">LinkedIn</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">💼</span>
+          <span class="handle-text">in/john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://bsky.app/profile/john0ogletree.bsky.social" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">Bluesky</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🦋</span>
+          <span class="handle-text">@john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://instagram.com/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">Instagram</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">📸</span>
+          <span class="handle-text">@john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://tiktok.com/@john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">TikTok</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🎵</span>
+          <span class="handle-text">@john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://threads.net/@john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">Threads</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🧵</span>
+          <span class="handle-text">@john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://youtube.com/@john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item social">
+        <span class="link-label">YouTube</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">▶</span>
+          <span class="handle-text">@john0ogletree</span>
+        </span>
+      </a>
+
+      <!-- ===== DEV PROJECTS (terminal) ===== -->
+      <div class="category-divider dev">Dev Projects</div>
+
+      <span class="link-item disabled">
+        <span class="link-label mono">SWAY</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🔒</span>
+          <span class="handle-text">Privacy CAPTCHA</span>
+        </span>
+      </span>
+
+      <a href="https://john-ogletree.github.io/on-device-oauth/" target="_blank" rel="noopener noreferrer" class="link-item dev demo">
+        <span class="link-label mono">On-device authentication</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🔑</span>
+          <span class="handle-text">On-Device OAuth</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/token-assembly-pipeline/" target="_blank" rel="noopener noreferrer" class="link-item dev demo">
+        <span class="link-label mono">Token Assembly Pipeline</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🌐</span>
+          <span class="handle-text">Translation Engine</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/vanilla-weather-project/" target="_blank" rel="noopener noreferrer" class="link-item dev">
+        <span class="link-label">Weather</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">☀️</span>
+          <span class="handle-text">Utility</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/vanilla-dns-record-lookup/" target="_blank" rel="noopener noreferrer" class="link-item dev">
+        <span class="link-label">DNS</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🔍</span>
+          <span class="handle-text">Lookup</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/vanilla-screen-share-function/" target="_blank" rel="noopener noreferrer" class="link-item dev">
+        <span class="link-label">Screen Share</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">📺</span>
+          <span class="handle-text">Vanilla</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/The-Debt-Clock/" target="_blank" rel="noopener noreferrer" class="link-item dev">
+        <span class="link-label mono">The Debt Clock</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">💰</span>
+          <span class="handle-text">Debt Clock</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/locale-aware-browser-clock/" target="_blank" rel="noopener noreferrer" class="link-item dev">
+        <span class="link-label">Universal Clock</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🕐</span>
+          <span class="handle-text">Locale-Aware</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/vanilla-avengers-doomsday-timer/" target="_blank" rel="noopener noreferrer" class="link-item dev">
+        <span class="link-label">Doomsday Timer</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">⚡</span>
+          <span class="handle-text">Avengers</span>
+        </span>
+      </a>
+
+      <a href="https://john-ogletree.github.io/vanilla-midnight-countdown/" target="_blank" rel="noopener noreferrer" class="link-item dev">
+        <span class="link-label">Midnight Countdown</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🌙</span>
+          <span class="handle-text">Daily Reset</span>
+        </span>
+      </a>
+
+      <!-- ===== STORE (vintage) ===== -->
+      <div class="category-divider store">Store</div>
+
+      <a href="https://www.zazzle.com/store/john0ogletree/products" target="_blank" rel="noopener noreferrer" class="link-item store">
+        <span class="link-label">Catalog</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">🛍️</span>
+          <span class="handle-text">Zazzle</span>
+        </span>
+      </a>
+
+      <!-- ===== CLIENTS (film) ===== -->
+      <div class="category-divider client">Clients</div>
+
+      <a href="https://vineyardaugusta.org/" target="_blank" rel="noopener noreferrer" class="link-item client">
+        <span class="link-label">Vineyard Church</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">⛪</span>
+          <span class="handle-text">Augusta, GA</span>
+        </span>
+      </a>
+
+      <!-- ===== SUPPORT (warm/human) ===== -->
+      <div class="category-divider support">Support</div>
+
+      <a href="https://gofundme.com/john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item support">
+        <span class="link-label">GoFundMe</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">❤️</span>
+          <span class="handle-text">john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://cash.app/$john0ogletree" target="_blank" rel="noopener noreferrer" class="link-item support">
+        <span class="link-label">Cash App</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">💵</span>
+          <span class="handle-text">$john0ogletree</span>
+        </span>
+      </a>
+
+      <a href="https://john0ogletree.substack.com" target="_blank" rel="noopener noreferrer" class="link-item support">
+        <span class="link-label">Substack</span>
+        <span class="link-handle-tape">
+          <span class="handle-icon">📬</span>
+          <span class="handle-text">john0ogletree</span>
+        </span>
+      </a>
+
+    </div>
+
+    <!-- ===== PRIVACY NOTICE (hacker/terminal) ===== -->
+    <div class="privacy-notice">
+      <p>
+        <span class="highlight">🔒 Privacy-first</span> · everything I build runs
+        <span class="highlight mono">on-device</span>,
+        <span class="highlight mono">in-browser</span>, or
+        <span class="highlight mono">locally</span> ·
+        no data collection, no tracking, no external calls.
+        <span class="blink-cursor"></span>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
