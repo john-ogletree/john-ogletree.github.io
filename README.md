@@ -7,6 +7,21 @@ Developer / Creator
 ## About
 Welcome to my site. Built entirely with plain, zero-build Markdown.
 
+## Social
+* [Bluesky](https://bsky.app/profile/john0ogletree.bsky.social)
+* [Facebook](https://facebook.com/john0ogletree)
+* [Fanbase](https://fanbase.app/john0ogletree)
+* [GETTR](https://gettr.com/user/john0ogletree)
+* [Instagram](https://instagram.com/john0ogletree)
+* [Lemon8](https://lemon8-app.com/john0ogletree)
+* [Substack](https://john0ogletree.substack.com)
+* [Threads](https://threads.net/@john0ogletree)
+* [TikTok](https://tiktok.com/@john0ogletree)
+* [Tumblr](https://tumblr.com/john0ogletree)
+* [Twitch](https://twitch.tv/john0ogletree)
+* [X](https://x.com/john0ogletree)
+* [YouTube](https://youtube.com/@john0ogletree)
+
 ## Projects & Repositories
 * [john-ogletree.github.io](https://github.com/john-ogletree/john-ogletree.github.io) — Official repository / link-in-bio
 * [css](https://github.com/john-ogletree/css) — Universal utility-based CSS design system
@@ -22,5 +37,5 @@ Welcome to my site. Built entirely with plain, zero-build Markdown.
 
 ---
 
-> Keep it clean, simple, and dependency
-> -free.
+> Keep it clean, simple, and dependenc
+> y-free.
