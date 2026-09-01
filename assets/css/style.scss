@@ -1,38 +1,29 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-
-/* White text on black background */
-body {
+/* Force everything to black background, white text */
+html, body, .main-content, .page-header, .inner, .wrapper, .site-footer {
   background-color: #000000 !important;
   color: #ffffff !important;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, li, .project-name, .project-tagline {
   color: #ffffff !important;
 }
 
 /* Links */
-a {
+a, a:visited {
   color: #4ea8ff !important;
 }
 
 a:hover {
   color: #7ec8ff !important;
-  text-decoration: underline;
 }
 
-/* Main content area */
-.main-content {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-}
-
-/* Sidebar / header (if applicable) */
+/* Header specifically — override Architect's blue header */
 .page-header {
-  background-color: #111111 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
   color: #ffffff !important;
 }
 
@@ -44,30 +35,26 @@ a:hover {
   color: #cccccc !important;
 }
 
+/* Footer */
+.site-footer {
+  border-top: 1px solid #333333 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
 /* Code blocks */
 pre, code {
   background-color: #1a1a1a !important;
   color: #e0e0e0 !important;
 }
 
-/* Horizontal rule */
-hr {
-  border-color: #333333 !important;
-}
-
-/* List items */
-li {
-  color: #ffffff !important;
-}
-
-/* Any other elements you want to style */
+/* Buttons */
 .btn {
   background-color: #1a1a1a !important;
   color: #ffffff !important;
-  border-color: #333333 !important;
+  border-color: #444444 !important;
 }
 
 .btn:hover {
   background-color: #333333 !important;
-  color: #ffffff !important;
 }
