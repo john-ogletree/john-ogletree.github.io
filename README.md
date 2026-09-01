@@ -9,3 +9,4 @@ Official link-in-bio.
 - [Substack](https://substack.com/@john0ogletree)
 - [Threads](https://threads.net/@john0ogletree)
 - [TikTok](https://tiktok.com/@john0ogletree)
+- [YouTube](https://youtube.com/@john0ogletree)
