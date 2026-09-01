@@ -1,0 +1,73 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* White text on black background */
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+/* Links */
+a {
+  color: #4ea8ff !important;
+}
+
+a:hover {
+  color: #7ec8ff !important;
+  text-decoration: underline;
+}
+
+/* Main content area */
+.main-content {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Sidebar / header (if applicable) */
+.page-header {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+.project-name {
+  color: #ffffff !important;
+}
+
+.project-tagline {
+  color: #cccccc !important;
+}
+
+/* Code blocks */
+pre, code {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+/* Horizontal rule */
+hr {
+  border-color: #333333 !important;
+}
+
+/* List items */
+li {
+  color: #ffffff !important;
+}
+
+/* Any other elements you want to style */
+.btn {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
+}
+
+.btn:hover {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
